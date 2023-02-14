@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html style="scroll-behavior: smooth;" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Самокаты - Яндекс Go</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/>
+
+    <style>
+        @font-face {
+            font-family: Yandex600;
+            font-display: swap;
+            src: url("https://yastatic.net/s3/lpc-ext/static/_fonts/YandexSansTextRegular-wght600.woff");
+        }
+        @font-face {
+            font-family: Yandex900;
+            font-display: swap;
+            src: url("https://yastatic.net/s3/lpc-ext/static/_fonts/YandexSansTextRegular-wght-900.woff");
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Yandex600;
+        }
+        h2, h3 {
+            font-family: Yandex900;
+        }
+        body {
+            background: #ffde40;
+        }
+        nav {
+            position: fixed;
+            left: 50%;
+            transform: translate(-50%, 0);
+            background: #ffde40;
+            width: 100%;
+            z-index: 2023;
+        }
+        nav ul {
+            width: 250px;
+            position: absolute;
+            top: 55px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            height: 150px;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            background: #f8d62a;
+            border-radius: 20px;
+            padding: 10px 0;
+        }
+        nav ul li {
+            list-style: none;
+        }
+        nav ul li a {
+            color: #21201f  !important;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        nav ul li a:hover {
+            color: #000 !important;
+        }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 19px;
+            height: 55px;
+            align-items: center;
+        }
+        nav img {
+            width: 85px;
+        }
+        nav button {
+            width: 104px;
+            height: 33px;
+            background: #21201f;
+            color: #fff;
+            border: none;
+            font-size: 14px;
+            padding: 2px 16px 2px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+        .bar1, .bar2, .bar3 {
+            background: #000;
+            width: 34px;
+            height: 4px;
+            margin: 7px 0;
+            transition: 0.4s;
+        }
+        header section {
+            padding: 55px 0 0 0;
+        }
+        header section .container {
+            padding: 30px 19px 0 19px;
+        }
+        header section img {
+            width: 100%;
+        }
+        #header {
+            display: none;
+        }
+        header h1 {
+            font-weight: 900;
+            line-height: 110%;
+            width: 100%;
+            font-size: 28px;
+            color: #21201f;
+            margin: 30px 0 0 0;
+        }
+        header section button {
+            width: 240px;
+            height: 50px;
+            background: #21201f;
+            border-radius: 16px;
+            padding: 4px 25px;
+            color: #fff;
+            border: 0;
+            font-weight: 600;
+            font-size: 18px;
+            margin: 20px 0 0 0;
+            cursor: pointer;
+        }
+        .location {
+            padding: 30px 19px 0 19px;
+            font-weight: 900;
+            margin: 30px 0 0 0;
+            position: relative;
+        }
+        .location p {
+            line-height: 110%;
+            font-size: 36px;
+            color: #fff;
+        }
+        .location img:first-child {
+            width: 70px;
+            position: absolute;
+            top: -10px;
+        }
+        .location img:last-child {
+            width: 100%;
+            margin: 10px 0 0 0;
+        }
+        .location a {
+            color: #fff;
+        }
+        section .container {
+            padding: 50px 19px 0 19px;
+            font-size: 25px;
+            line-height: 150%;
+            font-weight: 900;
+        }
+        #rent video {
+            width: 100%;
+            border-radius: 16px;
+            margin: 30px 0 0 0;
+        }
+        #rent #rentVideoDesc {
+            display: none;
+        }
+        h2 {
+            font-size: 32px;
+            line-height: 110%;
+            font-weight: 900;
+            color: #21201f;
+        }
+        #rent .wrap div {
+            margin: 30px 0 0 0;
+        }
+        #rent .wrap div div {
+            margin: 50px 0 0 0;
+        }
+        #rent .wrap div div img[alt="rent1"] {
+            width: 80%;
+        }
+        #rent .wrap div div img[alt="rent2"] {
+            width: 25%;
+        }
+        #rent .wrap div div img[alt="rent3"] {
+            width: 80%;
+        }
+        #rent .wrap div div p {
+            line-height: 110%;
+            font-weight: 900;
+            color: #212121;
+            font-size: 28px;
+            margin: 20px 0 0 0;
+        }
+        #rent > div > div > div > div:nth-child(3) > p {
+            width: 55%;
+        }
+        #rent > div > div > div > div:nth-child(3) {
+            position: relative;
+        }
+        #rent .wrap div div img[alt="arrowMob"] {
+            position: absolute;
+            top: 130px;
+            right: 90px;
+        }
+        #rent .wrap div div img[alt="arrowDesc"] {
+            display: none;
+        }
+        #rent .container {
+            padding: 50px 19px 250px 19px;
+        }
+        #rate {
+            padding: 0 19px;
+        }
+        #rate .container {
+            padding: 20px 0 0 0;
+        }
+        #rate > div:nth-child(1) {
+            font-size: 28px;
+            background: #21201f;
+            padding: 24px;
+            border-radius: 32px;
+            margin: auto;
+            color: #fff;
+            font-weight: 900;
+            text-align: center;
+        }
+        .swiper {
+            height: 320px;
+        }
+        .swiper .swiper-wrapper {
+            height: 270px;
+        }
+        .swiper .swiper-slide, #rate .wrap > div {
+            border: 4px solid #21201f;
+            border-radius: 32px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .swiper .swiper-slide img, #rate .wrap div img {
+            width: 50px;
+            height: auto;
+        }
+        .swiper .swiper-pagination span {
+            background: #21201f;
+        }
+        .swiper .swiper-slide h3, #rate .wrap div h3 {
+            margin: 15px 0;
+            font-weight: 900;
+            font-size: 26px;
+            line-height: 107%;
+            color: #21201f;
+        }
+        .swiper .swiper-slide p, #rate .wrap div p {
+            font-size: 18px;
+            line-height: 120%;
+            color: #21201f;
+            font-weight: 600;
+        }
+        .swiper .dashed {
+            border: 4px dashed #21201f;
+        }
+        #rate .wrap > div {
+            background: url('https://avatars.mds.yandex.net/get-lpc/1527204/3f2bc84d-5819-4cdc-8dea-ce9b56fb6343/orig') no-repeat;
+            border: 0;
+            padding: 48px 24px;
+        }
+        #rate .wrap div:nth-child(2) {
+            background: url('https://avatars.mds.yandex.net/get-lpc/403342/d70ceb72-8747-4c4f-b0e8-1e403e1f25e8/orig') no-repeat center/cover;
+            height: 350px;
+            margin: 20px 0 0 0;
+            border: 5px solid #21201f;
+            border-radius: 32px;
+        }
+        #rate .wrap div:nth-child(3) {
+            background: #21201f;
+            padding: 40px 24px;
+            border-radius: 30px;
+            margin-top: -28px;
+        }
+        #rate .wrap div:nth-child(3) h3, #rate .wrap div:nth-child(3) p {
+            color: #fff;
+        }
+        #rate .wrap div:nth-child(3) p {
+            margin: 10px 0 0 0;
+        }
+        #rate .wrap div:nth-child(3) p:last-child {
+            margin: 25px 0 0 0;
+        }
+        #plus {
+            margin: 60px 0 0 0;
+        }
+        #plus .container {
+            background: url('https://avatars.mds.yandex.net/get-lpc/1220100/7d3b5873-9562-44ae-bedf-8bb6a71d3a5d/orig') no-repeat bottom/cover;
+            width: 90%;
+            margin: auto;
+            padding: 48px 25px;
+            border-radius: 32px;
+        }
+        #plus .container p {
+            font-size: 22px;
+            margin: 8px 0 0 0;
+            font-weight: 600;
+            color: #21201f;
+            line-height: 130%;
+        }
+        #plus .container img {
+            width: 100%;
+            margin: 20px 0 0 0;
+        }
+        #plus .swiper .swiper-slide {
+            border: 0;
+        }
+        #plus .swiper .swiper-slide {
+            padding: 0;
+        }
+        #plus .swiper h3 {
+            margin: 0;
+            font-size: 28px;
+        }
+        #plus .swiper .swiper-slide p {
+            font-size: 18px;
+        }
+        #plus .swiper {
+            height: auto;
+            margin: 40px 0 0 0;
+        }
+        #plus .swiper .swiper-wrapper {
+            height: auto;
+            padding: 0 0 50px 0;
+        }
+        #video .swiper {
+            height: auto;
+            padding: 30px 0;
+        }
+        #video .swiper .swiper-wrapper .swiper-slide {
+            border: 0;
+        }
+        #video .swiper .swiper-slide video {
+            border-radius: 32px;
+        }
+        #video .swiper .swiper-wrapper {
+            height: auto;
+        }
+        #video .desc {
+            display: none;
+        }
+        #rules .container {
+            background: #fff;
+            width: 90%;
+            margin: 50px auto;
+            border-radius: 32px;
+            padding: 60px 1px 100px 1px;
+        }
+        #rules .swiper-slide {
+            border: 0;
+        }
+        #rules .swiper img {
+            width: 83px;
+            height: 83px;
+        }
+        #rules h2 {
+            text-align: center;
+        }
+        #rules h3 {
+            font-size: 28px;
+        }
+        #rules h3, #rules h2, #rules p {
+            color: #000;
+        }
+        #rules .desc {
+            display: none;
+        }
+        #healthCard .container {
+            background: transparent;
+            background: #00ca50;
+            padding: 35px;
+        }
+        #healthCard p {
+            font-size: 22px;
+            line-height: 120%;
+            color: #fff;
+            margin: 30px 0 0 0;
+            font-weight: 600;
+        }
+        #places .container {
+            background: #fff;
+            padding-bottom: 50px;
+            border-radius: 32px 32px 0 0;
+        }
+        #places p {
+            font-size: 22px;
+            line-height: 120%;
+            margin-top: 20px;
+            color: #212121;
+            font-weight: 600;
+        }
+        #places img {
+            width: 100%;
+            margin: 30px 0 0 0;
+            border-radius: 32px;
+        }
+        #places button {
+            width: 100%;
+            margin: 20px 0 0 0;
+            background: #21201f;
+            color: #fff;
+            font-weight: 600;
+            line-height: 38px !important;
+            border-radius: 16px;
+            font-size: 18px;
+            height: 50px;
+        }
+        footer .container {
+            width: 90%;
+            margin: auto;
+        }
+        footer {
+            background: #fafafa;
+            padding: 50px 0;
+        }
+        footer span {
+            display: block;
+            margin: 20px 0 0 0;
+            font-size: 13px;
+            line-height: 16px;
+            color: #21201f;
+            font-weight: 600;
+        }
+        #desc {
+            display: none;
+        }
+        nav a[href="#desc"] {
+            display: none;
+        }
+        #healthCard {
+            margin: -120px 0 0 0;
+        }
+
+        @media (min-width: 320px) {
+            #rate .wrap > div {
+                background-size: 100%;
+            }
+        }
+        
+        @media (min-width: 360px) {
+            nav img {
+                width: 105px;
+            }
+            nav button {
+                width: 124px;
+                padding: 2px 36px 2px 36px;
+            }
+            h2 {
+                font-size: 36px;
+            }
+            #rate .wrap div:nth-child(2) {
+                height: 400px;
+            }
+            #places button {
+                width: 240px;
+            }
+        }
+
+        @media (min-width: 540px) {
+            #rent .wrap div div img[alt="rent1"] {
+                width: 60%;
+            }
+            #rent .wrap div div img[alt="rent2"] {
+                width: 18%;
+            }
+            #rent .wrap div div img[alt="rent3"] {
+                width: 60%;
+            }
+        }
+
+        @media (min-width: 768px) {
+            #header {
+                display: block;
+            }
+            #headerMob {
+                display: none;
+            }
+            header h1 {
+                width: 500px;
+                font-size: 36px;
+                font-weight: 900;
+                margin: -80px 0 0 0;
+            }
+            header section button {
+                width: 360px;
+                height: 80px;
+                font-size: 24px;
+                border-radius: 24px;
+                margin: 30px 0 0 0;
+            }
+            .location {
+                margin: 60px 0 0 0;
+            }
+            .location p {
+                font-size: 54px;
+            }
+            .location .break {
+                display: none;
+            }
+            .location img:first-child {
+                right: 5%;
+            }
+            #rent .wrap {
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: space-between;
+            }
+            #rent video {
+                width: 300px;
+            }
+            #rent #rentVideoMob {
+                display: none;
+            }
+            #rent #rentVideoDesc {
+                display: block;
+                margin: -190px 0 0 0;
+            }
+            h2 {
+                font-size: 64px;
+            }
+            #rent .wrap div div img[alt="rent1"] {
+                width: 70%;
+            }
+            #rent .wrap div div img[alt="rent2"] {
+                width: 20%;
+            }
+            #rent .wrap div div img[alt="rent3"] {
+                width: 70%;
+            }
+            #rent .wrap div div p {
+                font-size: 36px;
+            }
+            #rent .wrap div div img[alt="arrowMob"] {
+                display: none;
+            }
+            #rent .wrap div div img[alt="arrowDesc"] {
+                display: block;
+                position: absolute;
+                top: 15%;
+                right: -60%;
+            }
+            #rate > div:nth-child(1) {
+                font-size: 40px;
+                padding: 50px 64px;
+                border-radius: 56px;
+            }
+            #rent .container {
+                padding: 50px 19px 180px 19px;
+            }
+            #rate .swiper .swiper-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            #rate .swiper .swiper-wrapper .swiper-slide {
+                height: 300px;
+                border-radius: 56px;
+            }
+            .swiper .swiper-wrapper .swiper-slide:nth-child(odd) {
+                min-width: 50%;
+            }
+            #rate .swiper .swiper-wrapper .swiper-slide:nth-child(even) {
+                min-width: 41%;
+                margin: 100px 0 0 0;
+            }
+            #rate .swiper .swiper-wrapper .swiper-slide:nth-child(3) {
+                margin: -60px 0 0 0;
+            }
+            #rate .swiper {
+                min-height: 70vh;
+            }
+            #rate .wrap > div {
+                width: 290px;
+                border-radius: 56px;
+            }
+            #rate .wrap > div:nth-child(1) {
+                margin: -270px 25px 0 0;
+                float: right;
+            }
+            #rate .wrap > div:first-child .img {
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: space-between;
+            }
+            #rate .wrap > div:first-child .img img {
+                width: 70px;
+                height: 90px;
+                margin: 30px 0 0 0;
+            }
+            #rate .wrap {
+                position: relative;
+            }
+            #rate .wrap div:nth-child(2) {
+                margin: 80px 0 0 0;
+                float: right;
+                border-radius: 56px;
+                position: absolute;
+                right: 0;
+                height: 300px;
+            }
+            #rate .wrap div:nth-child(3) {
+                border-radius: 56px;
+                width: 70%;
+                position: absolute;
+                z-index: -1;
+            }
+            #rate .wrap div:nth-child(3) p {
+                width: 80%;
+            }
+            #plus {
+                margin: 450px 0 0 0;
+            }
+            #plus .container .img {
+                display: flex;
+                justify-content: center;
+            }
+            #plus .container img {
+                width: 70%;
+            }
+            #plus .swiper-slide:nth-child(2) {
+                margin: 0;
+            }
+            #plus .swiper {
+                margin: 70px 0 0 0 !important;
+            }
+            #plus .swiper-wrapper {
+                flex-wrap: nowrap;
+            }
+            #plus .swiper-wrapper .swiper-slide {
+                margin-right: 0 !important;
+            }
+            #video .desc {
+                display: block;
+            }
+            #video .mob {
+                display: none;
+            }
+            #video .swiper .swiper-slide video {
+                width: 100%;
+            }
+            #rules .swiper {
+                display: none;
+            }
+            #rules .mob {
+                display: none;
+            }
+            #rules .desc {
+                display: block;
+            }
+            #rules .container {
+                padding: 200px 25px 350px 25px;
+            }
+            #rules .swiper-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            #rules .swiper-slide {
+                margin: 100px 0 0 0;
+            }
+            #rules h2 {
+                color: #21201f;
+                text-align: left;
+                font-size: 60px;
+            }
+            #rules h3 {
+                font-size: 36px;
+                font-weight: 900;
+                color: #21201f;
+                margin: 30px 0;
+            }
+            #rules p {
+                color: #21201f;
+                font-weight: 600;
+            }
+            #healthCard .container {
+                padding: 40px !important;
+            }
+            #healthCard {
+                width: 600px;
+                height: 400px;
+                margin: -300px 0 0 0;
+                float: right;
+            }
+            #healthCard p {
+                font-size: 32px;
+                line-height: 130%;
+                color: #fff;
+            }
+            #places {
+                margin: 450px 0 0 0;
+            }
+            #places .container {
+                padding-top: 120px;
+            }
+            #places p {
+                font-size: 32px;
+            }
+            #places button {
+                display: none;
+            }
+        }
+
+        @media (min-width: 820px) {
+            #rate .wrap > div:nth-child(1) {
+                margin: -370px 25px 0 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            nav ul li {
+                font-size: 0.9em;
+            }
+            nav .container {
+                width: 1000px;
+                margin: auto;
+                padding: 40px 10px;
+            }
+            nav ul {
+                width: 63%;
+                height: auto;
+                display: flex;
+                position: static;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                transform: translate(0, 0);
+                background: transparent;
+                padding: 0;
+            }
+            nav img {
+                width: 158px;
+            }
+            nav button {
+                width: 176px;
+                height: 50px;
+                font-size: 20px;
+                border-radius: 18px;
+                padding: 4px 51px;
+            }
+            #menuToggle {
+                display: none;
+            }
+            .location {
+                width: 940px;
+            }
+            .location p {
+                font-size: 64px;
+            }
+            .location img:first-child {
+                width: 100px;
+            }
+            h2 {
+                text-align: center;
+            }
+            #rent .wrap div div {
+                margin: 80px 0 0 0;
+                width: 80%;
+            }
+            #rent .wrap div div img[alt="arrowDesc"] {
+                right: -40%;
+            }
+            #rate > div:nth-child(1) {
+                width: 920px;
+                padding: 50px 234px;
+            }
+            .swiper .swiper-wrapper .swiper-slide {
+                height: 350px;
+            }
+            .swiper .swiper-slide img {
+                width: 60px;
+            }
+            .swiper .swiper-slide h3, #rate .wrap > div:first-child h3 {
+                margin: 30px 0;
+                font-size: 36px;
+            }
+            #rate .wrap > div {
+                width: 400px;
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+            #rate .wrap > div:nth-child(1) {
+                margin: -450px 25px 0 0;
+            }
+            #rate .swiper {
+                min-height: 70vh;
+            }
+            .swiper .swiper-slide p, #rate .wrap > div:first-child p {
+                font-size: 22px;
+            }
+            #rate .wrap div:nth-child(2) {
+                margin: -50px 0 0 0;
+                height: 400px;
+            }
+            #rate .wrap div:nth-child(3) {
+                margin: -180px 0 0 0;
+                padding: 50px 40px;
+            }
+            #rate .wrap div:nth-child(3) p {
+                width: 60%;
+                font-size: 22px;
+            }
+            #rate .wrap div:nth-child(3) h3 {
+                font-size: 36px;
+            }
+            #plus .container {
+                position: relative;
+                width: 100%;
+                padding: 6% 15%;
+            }
+            #plus .container h2 {
+                font-size: 50px;
+                width: 45%;
+                text-align: left;
+            }
+            #plus .container .img {
+                position: absolute;
+                right: 0;
+                width: 500px;
+                top: 0;
+            }
+            #plus .container p {
+                width: 75%;
+                margin: 8px 0 0 0;
+            }
+            #plus .swiper .swiper-wrapper .swiper-slide {
+                height: auto;
+            }
+            #plus .swiper {
+                min-height: auto;
+                margin: 0;
+            }
+            #plus .swiper h3 {
+                font-size: 32px;
+                margin: 0;
+            }
+            #plus .swiper p {
+                font-family: 600;
+                line-height: 130%;
+                width: 100%;
+                font-size: 22px !important;
+            }
+            #video {
+                background: #ffde40;
+                border-radius: 32px;
+                position: relative;
+            }
+            #video .swiper .swiper-slide video {
+                width: 70%;
+                float: right;
+            }
+            #video .swiper {
+                height: 36vh;
+            }
+            #rules .swiper-wrapper .swiper-slide {
+                width: 350px;
+            }
+            #rules .swiper-wrapper {
+                flex-wrap: wrap;
+                flex-direction: row;
+                text-align: left;
+                justify-content: space-between;
+            }
+            #rules .container {
+                padding-right: 100px;
+            }
+            #rules h2 {
+                font-size: 64px;
+            }
+            #healthCard .container {
+                width: 100%;
+            }
+            #healthCard {
+                margin: -300px 5% 0 0;
+            }
+            #places {
+                margin: 400px 0 0 0;
+            }
+            footer .container {
+                display: flex;
+                justify-content: space-between;
+            }
+            footer .container span:nth-child(1) {
+                width: 600px
+            }
+            footer > div > span:nth-child(2) {
+                width: 280px;
+            }
+            #desc {
+                display: block;
+                background: #fff;
+            }
+            #desc .container {
+                padding-bottom: 150px;
+                width: 950px;
+                margin: auto;
+                background: url('https://avatars.mds.yandex.net/get-lpc/1370085/ee43338c-db8c-44a5-982e-e9372ae4028c/orig') no-repeat bottom/contain;
+            }
+            #desc h2 {
+                text-align: left;
+                width: 455px;
+            }
+            #desc p {
+                margin: 50px 0;
+                width: 455px;
+            }
+            nav a[href="#desc"] {
+                display: block;
+            }
+            nav a[href="#mob"] {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            nav .container {
+                width: 1100px;
+            }
+            nav ul li {
+                font-size: 0.95em;
+            }
+            header section .container {
+                width: 950px;
+                margin: auto;
+            }
+            .location {
+                margin: 50px auto;
+            }
+            section .container {
+                width: 950px;
+                margin: auto;
+            }
+            #rent .wrap div div img[alt="arrowDesc"] {
+                right: -50%;
+            }
+            #rate .swiper {
+                min-height: 150vh;
+            }
+            #rate .wrap > div:nth-child(1) {
+                margin: -470px 25px 0 0;
+            }
+            #rate .wrap div:nth-child(2) {
+                margin: -70px 0 0 0;
+            }
+            #rate .swiper .swiper-wrapper .swiper-slide {
+                height: 360px;
+            }
+            #plus .container {
+                padding: 10% 15%;
+                border-radius: 56px 56px 0 0;
+                background: url('https://avatars.mds.yandex.net/get-lpc/1220100/7d3b5873-9562-44ae-bedf-8bb6a71d3a5d/orig') no-repeat center/cover;
+                background-position: 100% 85%;
+                object-fit: cover;
+            }
+            #plus .container h2 {
+                font-size: 84px;
+                width: 58%;
+                text-align: left;
+            }
+            #plus .container .img {
+                width: 700px;
+                top: 5%;
+                right: 2%;
+            }
+            #plus .container p {
+                width: 75%;
+                font-size: 32px;
+            }
+            #video .swiper {
+                height: 95vh;
+            }
+            #rules .container {
+                padding-left: 100px;
+            }
+            #rules .swiper-wrapper .swiper-slide {
+                width: 370px;
+            }
+            #rules h3 {
+                padding: 0 20px 0 0;
+            }
+            #healthCard {
+                margin-right: 1%;
+            }
+            #healthCard .container {
+                width: 600px;
+                height: 500px;
+            }
+            #places {
+                width: 100%;
+            }
+            #places h2 {
+                text-align: left;
+            }
+            #places .container {
+                width: 100%;
+            }
+            #places img {
+                width: 100%;
+                text-align: center;
+                margin: 60px 0 0 0;
+            }
+            #places .wrap {
+                width: 950px;
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+            }
+            footer .container {
+                width: 950px;
+            }
+        }
+
+        @media (min-width: 1680px) {
+            .swiper {
+                min-height: 100vh;
+            }
+            #rate .wrap > div:nth-child(1) {
+                margin: -470px 25px 0 0;
+            }
+            #rate .wrap div:nth-child(2) {
+                margin: -70px 0 0 0;
+            }
+            #plus .container p {
+                width: 65%;
+            }
+            #healthCard {
+                margin-right: 15%;
+            }
+            #rate .swiper {
+                min-height: 100vh;
+            }
+            #rules .swiper-wrapper {
+                justify-content: space-around;
+            }
+            #rules .swiper-wrapper .swiper-slide {
+                width: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <a href="https://go.yandex/"><img src="https://avatars.mds.yandex.net/get-lpc/1674605/75f84498-2088-41aa-884f-c20181a63479/orig" alt="logo" /></a>
+                <div id="menuToggle" onclick="menuToggle()">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+                <ul>
+                    <li><a href="#rent">Как арендовать самокат</a></li>
+                    <li><a href="#plus">Катайтесь с Плюсом</a></li>
+                    <li><a href="#video">Катайтесь аккуратно</a></li>
+                    <li><a href="#places">Где самокаты?</a></li>
+                </ul>
+                <a href="#desc"><button>Скачать</button></a>
+                <a href="#mob"><button>Скачать</button></a>
+            </div>
+        </nav>
+        <section>
+            <div class="container">
+                <img id="headerMob" src="https://avatars.mds.yandex.net/get-lpc/1531919/e92480aa-01c0-4be9-8b43-5b5f5dfe600d/orig" alt="headerMob" />
+                <img id="header" src="https://avatars.mds.yandex.net/get-lpc/1531919/edb6d5af-ba40-40d6-a57c-3d8942865ff0/orig" alt="header" />
+                <h1 id="mob">Скачайте приложение, чтобы арендовать ближайший электросамокат</h1>
+                <button>Скачать приложение</button>
+            </div>
+        </section>
+        <div class="location">
+            <p>Самокаты <img src="https://avatars.mds.yandex.net/get-lpc/1527204/6a47f09b-4e20-4e02-845a-2f2b5cf0a39d/orig" alt="pattern" /> <br class="break" /> есть в <a href="">Москве</a>, <a href="">Санкт-Петербурге</a>, <a href="">Краснодаре</a> и <a href="">Туле</a></p>
+            <img src="https://avatars.mds.yandex.net/get-lpc/1520633/d5577264-bc17-4414-9900-cf456ec9a76e/orig" alt="pattern2" />
+        </div>
+    </header>
+    <section id="rent">
+        <div class="container">
+            <h2>Как арендовать самокат</h2>
+            <div class="wrap">
+                <video id="rentVideoMob" loop muted autoplay>
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-51770-1818a6c0b73-9d74966a8c408309/480p.mp4" />
+                </video>
+                <video id="rentVideoDesc" loop muted autoplay>
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-51770-1818a6ba5bd-844a41214c9c7e63/720p.mp4" />
+                </video>
+                <div>
+                    <div>
+                        <img src="https://avatars.mds.yandex.net/get-lpc/403342/f97c3e9b-721d-4a02-b144-2e5a0a368654/orig" alt="rent1" />
+                        <p>В Яндекс Go нажмите кнопку Самокаты</p>
+                    </div>
+                    <div>
+                        <img src="https://avatars.mds.yandex.net/get-lpc/1370085/80de62cf-bad2-4b16-ae0a-00f66cf01e80/orig" alt="rent2" />
+                        <p>Найдите на карте ближайшую парковку</p>
+                    </div>
+                    <div>
+                        <img src="https://avatars.mds.yandex.net/get-lpc/1370085/c0430b62-e7b0-48b2-9f8e-757dcfaee867/orig" alt="rent3" />
+                        <p>Дойдите до самоката и отсканируйте QR-код на руле</p>
+                        <img src="https://avatars.mds.yandex.net/get-lpc/1674605/422b7949-eebf-4909-9315-391523cd6e6b/orig" alt="arrowMob" />
+                        <img src="https://avatars.mds.yandex.net/get-lpc/1364677/218f6fb2-1e57-4039-8eac-f0122a8e929f/orig" alt="arrowDesc" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="rate">
+        <div>Готово! Выбирайте тариф и можно ехать</div>
+
+        <div class="container">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="https://avatars.mds.yandex.net/get-lpc/1370085/9937c5ad-ced3-4757-800d-ec2e8558a48c/orig" alt="slider1" />
+                    <h3>Тариф Фикс</h3>
+                    <p>Подойдет, если знаете точку назначения. Цена поездки фиксированная. Покажем её заранее.</p>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="https://avatars.mds.yandex.net/get-lpc/1220100/7e2be54c-7cf9-4c8a-84a6-d08b5f887764/orig" alt="slider2" />
+                    <h3>Тариф Поминутный</h3>
+                    <p>Для прогулок по городу.  Аренда: от 50 рублей + тариф от 7 рублей в минуту.</p>
+                  </div>
+                  <div class="swiper-slide dashed">
+                    <h3>Опция <br /> «Ещё один самокат»</h3>
+                    <p>Нужна, чтобы забронировать с одного телефона до трёх самокатов одновременно. Да, и такое бывает
+                    </p>
+                  </div>
+                </div>
+
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="wrap">
+                <div>
+                    <div class="img"><img src="https://avatars.mds.yandex.net/get-lpc/1368426/f1d3c319-3009-4495-99bd-689fe073332c/orig" alt="wrap1" />
+                        <h3>Катайтесь с Плюсом</h3></div>
+                    <p>Вернём 5% кешбэка баллами Плюса за каждую поездку. Кешбэк можно тратить в сервисах Яндекса</p>
+                </div>
+                <div>
+                    
+                </div>
+                <div>
+                    <h3>На чем едем?</h3>
+                    <p>Ninebot Max Plus 2022 года выпуска. Красив и функционален. На его борту есть держатель для телефона с беспроводной зарядкой.</p>
+                    <p>За 30 минут поездки зарядим ваш девайс на 40%</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="plus">
+        <div class="container">
+            <div class="h2Img">
+                <h2>Абонемент на самокаты в Яндекс Плюсе</h2>
+                <p>Если вы часто ездите по городу на самокатах, выгоднее будет с абонементом. Его можно купить, только если у вас есть Яндекс Плюс. Абонемент бесплатный на первый месяц, за второй месяц вернём 399 ₽ баллами Плюса. Вот какие бонусы он даёт:</p>
+                <div class="img"><img src="https://avatars.mds.yandex.net/get-lpc/1368426/f3f68bd0-fba4-4318-ad1c-2649bd5906ae/orig" alt="img" /></div>
+            </div>
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <h3>Бесплатный старт</h3>
+                    <p>0₽ в любом тарифе и даже в групповой поездке, вместо 50₽ за каждую поездку</p>
+                  </div>
+                  <div class="swiper-slide">
+                    <h3>Бесплатное ожидание</h3>
+                    <p>до 15 минут за 0₽ вместо 3,5₽ за минуту</p>
+                  </div>
+                </div>
+
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+    <section id="video">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide mob">
+                <video controls preload="auto">
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-69033-17a7ca53e45-8f60e3c4849a8603/720p.mp4" />
+                </video>
+              </div>
+              <div class="swiper-slide mob">
+                <video controls preload="auto">
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-67230-17a7ca59e65-567f2be168adb136/720p.mp4" />
+                </video>
+              </div>
+              <div class="swiper-slide mob">
+                <video controls preload="auto">
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-28644-17a7ca635dc-7b8d35573560f0b4/720p.mp4" />
+                </video>
+              </div>
+              <div class="swiper-slide mob">
+                <video controls preload="auto">
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-43474-17a7ca79779-ac93091349c7c794/720p.mp4" />
+                </video>
+              </div>
+              <div class="swiper-slide mob">
+                <video controls preload="auto">
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-28644-17a7ca69871-c7cac503e3e96e84/720p.mp4" />
+                </video>
+              </div>
+              <div class="swiper-slide mob">
+                <video controls preload="auto">
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-51770-17a85a0eda7-21a70b2209f9f7b4/720p.mp4" />
+                </video>
+              </div>
+              <div class="swiper-slide mob">
+                <video controls preload="auto">
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-38232-17a7ca824d2-bb521532d02d7ec1/720p.mp4" />
+                </video>
+              </div>
+              <div class="swiper-slide mob">
+                <video controls preload="auto">
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-69033-17a7ca88130-901eddd45afb72ef/720p.mp4" />
+                </video>
+              </div>
+              <div class="swiper-slide mob">
+                <video controls preload="auto">
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-67230-17a7ca8e643-1173a514437865bc/720p.mp4" />
+                </video>
+              </div>
+              <div class="swiper-slide mob">
+                <video controls preload="auto">
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-42220-17a7ca95cef-890c10f759debbd4/720p.mp4" />
+                </video>
+              </div>
+
+              <div class="swiper-slide desc">
+                <video controls preload="auto">
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-42220-17a7be0554e-ca9878b3e384ce9b/720p.mp4" />
+                </video>
+              </div>
+              <div class="swiper-slide desc">
+                <video controls preload="auto">
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-67230-17a7be12814-d4349e064a96e559/720p.mp4" />
+                </video>
+              </div>
+              <div class="swiper-slide desc">
+                <video controls preload="auto">
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-28644-17a7be1a0ee-d835336e9d859e4a/720p.mp4" />
+                </video>
+              </div>
+              <div class="swiper-slide desc">
+                <video controls preload="auto">
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-43474-17a7be21d43-cfb3f6c623bf8b7b/720p.mp4" />
+                </video>
+              </div>
+              <div class="swiper-slide desc">
+                <video controls preload="auto">
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-28644-17a85a07b69-ac436aecf5e86a78/720p.mp4" />
+                </video>
+              </div>
+              <div class="swiper-slide desc">
+                <video controls preload="auto">
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-42220-17a7be31056-f283c899f4d444f0/720p.mp4" />
+                </video>
+              </div>
+              <div class="swiper-slide desc">
+                <video controls preload="auto">
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-67230-17a7be35fa3-95150f9a730d87/720p.mp4" />
+                </video>
+              </div>
+              <div class="swiper-slide desc">
+                <video controls preload="auto">
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-28644-17a7be3bc45-8adfd7acc40bb5f1/720p.mp4" />
+                </video>
+              </div>
+              <div class="swiper-slide desc">
+                <video controls preload="auto">
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-38232-17a7be46e2e-4900b1d2d2696114/720p.mp4" />
+                </video>
+              </div>
+              <div class="swiper-slide desc">
+                <video controls preload="auto">
+                    <source src="https://streaming.video.yandex.ru/get/yndx-video/m-42220-17a7be4dec5-264e0ac54d3efdd0/720p.mp4" />
+                </video>
+              </div>
+            </div>
+
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+    <section id="rules">
+        <div class="container">
+            <h2>Катайтесь нежно</h2>
+            <div class="swiper">
+                <div class="swiper-wrapper mob">
+                    <div class="swiper-slide">
+                        <img src="https://avatars.mds.yandex.net/get-lpc/1531919/cc3cba2a-db3e-40c9-af79-c97a853fb3e8/orig" alt="rule1" />
+                        <h3>Один человек — один самокат</h3>
+                        <p>А с опцией «Ещё один самокат» можно забронировать самокат для друга</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://avatars.mds.yandex.net/get-lpc/1370085/9e926005-d504-417a-b278-b5e04fc5ff47/orig" alt="rule2" />
+                        <h3>Лучше наденьте шлем</h3>
+                        <p>Если только учитесь кататься, не повредит и другая защита
+                        </p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://avatars.mds.yandex.net/get-lpc/1674605/6e94554a-eb70-4959-86ef-51a59ad70fce/orig" alt="rule3" />
+                        <h3>Катайтесь трезвыми</h3>
+                        <p>Это правило справедливо для любого транспорта</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://avatars.mds.yandex.net/get-lpc/1364677/e8ec23bd-f6af-430c-8666-1fcadc57b406/orig" alt="rule4" />
+                        <h3>Переходите дорогу только пешком</h3>
+                        <p>То же с бордюрами и ступеньками</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://avatars.mds.yandex.net/get-lpc/403342/21e693ff-f2d4-4a98-b124-81ca05ac3b7a/orig" alt="rule5" />
+                        <h3>Уступайте пешеходам</h3>
+                        <p>Вы тоже один из них</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://avatars.mds.yandex.net/get-lpc/1531919/9fe85b23-84ec-45c4-afb2-c9372c32cfde/orig" alt="rule6" />
+                        <h3>Катайтесь по‑взрослому</h3>
+                        <p>Вы можете взять самокат, если вам уже исполнилось 18 лет
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="swiper-wrapper desc">
+                <div class="swiper-slide">
+                    <img src="https://avatars.mds.yandex.net/get-lpc/1531919/cc3cba2a-db3e-40c9-af79-c97a853fb3e8/orig" alt="rule1" />
+                    <h3>Один человек — один самокат</h3>
+                    <p>А с опцией «Ещё один самокат» можно забронировать самокат для друга</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://avatars.mds.yandex.net/get-lpc/1370085/9e926005-d504-417a-b278-b5e04fc5ff47/orig" alt="rule2" />
+                    <h3>Лучше наденьте шлем</h3>
+                    <p>Если только учитесь кататься, не повредит и другая защита
+                    </p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://avatars.mds.yandex.net/get-lpc/1674605/6e94554a-eb70-4959-86ef-51a59ad70fce/orig" alt="rule3" />
+                    <h3>Катайтесь трезвыми</h3>
+                    <p>Это правило справедливо для любого транспорта</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://avatars.mds.yandex.net/get-lpc/1364677/e8ec23bd-f6af-430c-8666-1fcadc57b406/orig" alt="rule4" />
+                    <h3>Переходите дорогу только пешком</h3>
+                    <p>То же с бордюрами и ступеньками</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://avatars.mds.yandex.net/get-lpc/403342/21e693ff-f2d4-4a98-b124-81ca05ac3b7a/orig" alt="rule5" />
+                    <h3>Уступайте пешеходам</h3>
+                    <p>Вы тоже один из них</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://avatars.mds.yandex.net/get-lpc/1531919/9fe85b23-84ec-45c4-afb2-c9372c32cfde/orig" alt="rule6" />
+                    <h3>Катайтесь по‑взрослому</h3>
+                    <p>Вы можете взять самокат, если вам уже исполнилось 18 лет
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="healthCard">
+            <div class="container">
+                <div class="wrap">
+                    <img src="https://avatars.mds.yandex.net/get-lpc/1368426/b66b005d-4cd9-4bdc-8737-acb70a4e7801/orig" alt="heart" />
+
+                    <p>Во время поездки на самокате действует страхование жизни и здоровья — вашей и окружающих. Если во время катания что-то произошло, сразу же напишите в поддержку</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="places">
+        <div class="container">
+            <div class="wrap">
+                <h2>Где есть самокаты</h2>
+                <p>Самокаты постепенно появляются в разных районах Москвы. Карта в приложении покажет, где взять самокат — и на какой парковке его можно оставить</p>
+                <img src="https://avatars.mds.yandex.net/get-lpc/1520633/bd3093ef-6bb8-4953-8680-2dca3bd1573b/orig" alt="map" />
+            </div>
+            <button>Скачать приложение</button>
+        </div>
+    </section>
+    <section id="desc">
+        <div class="container">
+            <div class="wrap">
+                <div>
+                    <h2>Скачайте приложение</h2>
+                    <p>Наведите камеру на QR-код для загрузки приложения
+                    </p>
+                    <img src="https://avatars.mds.yandex.net/get-lpc/1370085/d9f75df2-ba50-4000-83ea-1f6db39c9d15/orig" alt="qrcode" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <span>Электросамокаты Яндекс Go — сервис аренды электросамокатов на условиях, указанных на yandex.ru/legal/samokaty. Дополнительная опция «Абонемент на самокаты» оформляется на условиях документа «Условия подписки на Яндекс Плюс» (yandex.ru/legal/yandex_plus_conditions); есть ограничения, подробнее см. здесь: yandex.ru/legal/yandex_plus_opzii_list. В групповой поездке можно арендовать не более 3 самокатов на одного пользователя. Условия подписки на Яндекс Плюс: yandex.ru/legal/yandex_plus_conditions. Условия программы лояльности «Яндекс Плюс Кешбэк»: yandex.ru/legal/plus_loyalty. Пользователю начисляется 5% кешбэка баллами, но не более 1000 баллов за одну поездку. Для получения и использования баллов требуется активная подписка Яндекс Плюс или иная, ее включающая. Баллы не являются денежными средствами, при использовании баллов предоставляется скидка. 0+</span>
+            <span>©2023 ООО «Яндекс.Микромобильность»</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+        let toggleState = false;
+
+        const menuToggle = () => {
+            toggleState = !toggleState;
+            if($(window).width() <= 912) {
+                if(toggleState) {
+                    $('.bar1').css({'transform': 'rotate(-45deg) translate(-8px, 7px)'});
+                    $('.bar2').css({'opacity': '0'});
+                    $('.bar3').css({'transform': 'rotate(45deg) translate(-8px, -8px)'});
+                    $("nav ul").slideDown({
+                        start: function () {
+                            $(this).css({
+                                display: "flex"
+                            })
+                        }
+                    });
+                    $('.bar1').css({'backgroundColor': '#fff'});
+                    $('.bar2').css({'backgroundColor': '#fff'});
+                    $('.bar3').css({'backgroundColor': '#fff'});
+                }
+                else {
+                    $('.bar1').css({'transform': 'rotate(0deg) translate(0px, 0px)'});
+                    $('.bar2').css({'opacity': '1'});
+                    $('.bar3').css({'transform': 'rotate(0deg) translate(0px, 0px)'});
+                    $("nav ul").slideUp({
+                        start: function () {
+                            $(this).css({
+                                display: "flex"
+                            })
+                        }
+                    });
+                    $('.bar1').css({'backgroundColor': '#000'});
+                    $('.bar2').css({'backgroundColor': '#000'});
+                    $('.bar3').css({'backgroundColor': '#000'});
+                }
+            }
+        }
+
+        if($(window).width() <= 912) {
+            $('ul li').click(() => {
+                toggleState = false;
+                
+                $('.bar1').css({'transform': 'rotate(0deg) translate(0px, 0px)'});
+                        $('.bar2').css({'opacity': '1'});
+                        $('.bar3').css({'transform': 'rotate(0deg) translate(0px, 0px)'});
+                        $("nav ul").slideUp({
+                            start: function () {
+                                $(this).css({
+                                    display: "flex"
+                                })
+                            }
+                        });
+                        $('.bar1').css({'backgroundColor': '#000'});
+                        $('.bar2').css({'backgroundColor': '#000'});
+                        $('.bar3').css({'backgroundColor': '#000'});
+            });
+        }
+
+        const swiper = new Swiper('.swiper', {
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
+
+            breakpoints: {
+                768: {
+                    pagination: {
+                        el: '',
+                        clickable: false
+                    },
+                    slidesPerView: 3
+                }
+            },
+        });
+
+        const swiperVideo = new Swiper('#video .swiper', {
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            }
+        });
+
+        const swiperRules = new Swiper('#rules .swiper', {
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 6,
+                    pagination: {
+                        el: '',
+                        clickable: false
+                    },
+                }
+            },
+        });
+
+        if($(window).width() >= 768) {
+            $('#rules h2').text('Катайтесь аккуратно');
+        }
+    </script>
+</body>
+</html>
